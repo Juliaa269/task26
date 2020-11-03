@@ -1,0 +1,23 @@
+.gallery-box {
+    display: flex;
+    justify-content: center;
+}
+
+.album-item {
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: 1px solid black;
+    margin-right: 50px;
+    text-align: center;
+    width: 300px;
+    padding: 15px;
+}
+
+.album-item:hover {
+    background-color: lightblue;
+}
+
+.photo-item {
+    float: left;
+    width: 300px;
+}
