@@ -1,65 +1,71 @@
+import GalleryController from './controller/GalleryController'
 
 import '../css/style.css'
 
-const ALBUM_ITEM_CLASS = 'album-item';
+$(() => {
+    console.log('app started');
+    new GalleryController();
+})
 
-const albumsEl = document.querySelector('#albums');
-const photosEl = document.querySelector('#photos');
+// const ALBUM_ITEM_CLASS = 'album-item';
 
-const albumItem = document.querySelector('#albumItem').innerHTML;
-const photoItem = document.querySelector('#photoItem').innerHTML;
+// const albumsEl = document.querySelector('#albums');
+// const photosEl = document.querySelector('#photos');
 
-albumsEl.addEventListener('click', onAlbumsClick);
+// const albumItem = document.querySelector('#albumItem').innerHTML;
+// const photoItem = document.querySelector('#photoItem').innerHTML;
 
-init();
+// albumsEl.addEventListener('click', onAlbumsClick);
 
-function onAlbumsClick(e) {
-    switch(true) {
-        case (e.target.classList.contains(ALBUM_ITEM_CLASS)):
-            getPhotos(e.target.dataset.id);
-    }
-}
+// init();
 
-function init() {
-    getAlbums();
-}
+// function onAlbumsClick(e) {
+//     switch(true) {
+//         case (e.target.classList.contains(ALBUM_ITEM_CLASS)):
+//             getPhotos(e.target.dataset.id);
+//     }
+// }
 
-function getAlbums() {
-    return fetch('https://jsonplaceholder.typicode.com/albums')
-        .then((res) => res.json())
-        .then((data) => {
-            renderAlbums(data);
-                return data;
-        })
-        .then((data) => {
-            if (data.length) {
-            getPhotos(data[0].id);
-        }})
-}
+// function init() {
+//     getAlbums();
+// }
 
-function renderAlbums(data) {
-    albumsEl.innerHTML = data
-        .map((album) => {
-            return albumItem
-                .replace('{{id}}', album.id)
-                .replace('{{title}}', album.title);
-            })
-        .join('');
-}
+// function getAlbums() {
+//     return fetch(ALBUMS_LIST)
+//         .then((res) => res.json())
+//         .then((data) => {
+//             renderAlbums(data);
+//                 return data;
+//         })
+//         .then((data) => {
+//             if (data.length) {
+//             getPhotos(data[0].id);
+//         }})
+// }
 
-function getPhotos(albumId) {
-    return fetch('https://jsonplaceholder.typicode.com/photos?albumId={{id}}'
-        .replace('{{id}}', albumId))
-        .then((res) => res.json())
-        .then(renderPhotos);
-}
+// function renderAlbums(data) {
+//     albumsEl.innerHTML = data
+//         .map((album) => {
+//             return albumItem
+//                 .replace('{{id}}', album.id)
+//                 .replace('{{title}}', album.title);
+//             })
+//         .join('');
+// }
 
-function renderPhotos(data) {
-    photosEl.innerHTML = data
-        .map((photo) => {
-            return photoItem
-                .replace('{{url}}', photo.url)
-                .replace('{{title}}', photo.title);
-        })
-        .join('');
-}
+// function getPhotos(albumId) {
+//     return fetch(ALBUM_PHOTOS
+//         .replace('{{id}}', albumId))
+//         .then((res) => res.json())
+//         .then(renderPhotos);
+// }
+
+// function renderPhotos(data) {
+//     photosEl.innerHTML = data
+//         .map((photo) => {
+//             return photoItem
+//                 .replace('{{url}}', photo.url)
+//                 .replace('{{title}}', photo.title);
+//         })
+//         .join('');
+// }
