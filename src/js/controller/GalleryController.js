@@ -30,17 +30,13 @@ export default class GalleryController {
     }
 
     onToggle(id){
-        console.log('this', this);
         this.photosCollection.getPhotos(id).then(() => {
             this.photosView.render(this.photosCollection.photos);
         });
- //this.collection.toggle(id);
         this.renderList()
-
-           }
+    }
 
     renderList(){
-        // this.listview.render(this.collection.list)
         this.listCollection.getList().then(() => {
             this.listView.render(this.listCollection.list);
         });

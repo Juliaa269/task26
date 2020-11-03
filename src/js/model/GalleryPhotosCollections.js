@@ -8,7 +8,7 @@ export default class GalleryPhotosCollection{
     }
 
     getPhotos(albumId){
-        console.log('alboum id', albumId)
+        console.log('album id =', albumId)
         return fetch(ALBUM_PHOTOS
             .replace('{{id}}', albumId))
             .then(res => res.json())
