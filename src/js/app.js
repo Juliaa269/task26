@@ -1,3 +1,6 @@
+
+import '../css/style.css'
+
 const ALBUM_ITEM_CLASS = 'album-item';
 
 const albumsEl = document.querySelector('#albums');
