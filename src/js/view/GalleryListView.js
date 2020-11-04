@@ -21,6 +21,6 @@ export default class GalleryListView {
     }
 
     onAlbumItemClick(e){
-        this.config.onToggle(e.target.dataset.id);
+        this.config.onToggle($(e.target).data('id'));
     }
 }

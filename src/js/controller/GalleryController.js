@@ -24,9 +24,11 @@ export default class GalleryController {
             this.listView.render(this.listCollection.list);
         });
 
-         this.photosCollection.getPhotos(1).then(() => {
-            this.photosView.render(this.photosCollection.photos);
-         });
+        this.photosCollection.getPhotos()
+            .then(() => {
+            this.photosView.render(this.photosCollection.photos)
+            this.onToggle(this.listCollection.list[0].id);
+        });
     }
 
     onToggle(id){
